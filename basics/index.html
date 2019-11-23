@@ -12,17 +12,25 @@
     <p>{{ now }}</p>
   </div>
   
-<!-- Connect vue lib just right in html script tag -->
-<!-- This particular is for dev env. It provide's useful console output -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-  const app = new Vue({
-    el: '#app',  
-    data: {
-      message: 'Hello Vue!',
-      now: new Date(),
-    }
-  });
-</script>
+  <!-- Connect vue lib just right in html script tag -->
+  <!-- This particular is for dev env. It provide's useful console output -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        now: new Date(),
+      },
+      methods: {
+        updateDate() {
+          this.now = new Date();
+        },
+      },
+      mounted() {
+        setInterval(() => this.updateDate(), 1000);
+      }
+    });
+  </script>
 </body>
 </html>
