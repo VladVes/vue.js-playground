@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hellow Vue!</title>
+</head>
+<body>
+  <div id='app'>
+    <h1>{{ message }}</h1>
+    <p>{{ now }}</p>
+  </div>
+  
+<!-- connect vue lib just right in html script tag -->
+<!-- this particular version is for development env It provide useful consol output -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',  
+    data: {
+      message: 'Hello Vue!',
+      now: new Date(),
+    }
+  });
+</script>
+</body>
+</html>
