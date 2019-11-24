@@ -25,9 +25,9 @@
       </li>
     </ol>
     <hr>
-      <div v-if="seen"> <!-- -->
-        v-if: Now you see me!
-      </div>
+      <button v-on:click="reversMessage"> <!-- -->
+        Reverse header message!
+      </button>
     <hr>
   </div>
   
@@ -53,6 +53,9 @@
       methods: {
         updateDate() {
           this.now = new Date();
+        },
+        reversMessage() {
+          this.message = this.message.split('').reverse().join('');
         },
       },
 
