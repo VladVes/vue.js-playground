@@ -10,12 +10,25 @@
   <div id='app'>
     <h1>{{ message }}</h1>
     <p>{{ now }}</p>
+    <hr>
     <span v-bind:title="message2"> <!-- updates title every when string message2 change -->
-      Put cursor here and wait for a few seconds
+      v-bind: Put cursor here and wait for a few seconds
     </span>
-    <span v-if="seen"> <!-- if seen === true -->
-      Now you see me!
-    </span>
+    <hr>
+    <div v-if="seen"> <!-- if seen === true -->
+      v-if: Now you see me!
+    </div>
+    <hr>
+    <ol>
+      <li v-for="todo in todos"> <!-- -->
+        {{ todo.text }}
+      </li>
+    </ol>
+    <hr>
+      <div v-if="seen"> <!-- -->
+        v-if: Now you see me!
+      </div>
+    <hr>
   </div>
   
   <!-- Connect vue lib just right in html script tag -->
@@ -30,6 +43,11 @@
         message2: 'Hellw again!' + new Date().toLocaleString(),
         now: new Date(),
         seen: true,
+        todos: [
+          { text: 'Learn JS!' },
+          { text: 'Learn Vue!' },
+          { text: 'Creat greate App!' },          
+        ],
       },
 
       methods: {
