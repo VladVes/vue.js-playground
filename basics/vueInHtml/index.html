@@ -10,6 +10,9 @@
   <div id='app'>
     <h1>{{ message }}</h1>
     <p>{{ now }}</p>
+    <span v-bind:title="message2">
+      Put cursor here and wait for a few seconds
+    </span>
   </div>
   
   <!-- Connect vue lib just right in html script tag -->
@@ -20,6 +23,7 @@
       el: '#app',
       data: {
         message: 'Hello Vue!',
+        message2: 'Hellw again!' + new Date().toLocaleString(),
         now: new Date(),
       },
       methods: {
