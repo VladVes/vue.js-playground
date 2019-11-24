@@ -29,6 +29,11 @@
         Reverse header message!
       </button>
     <hr>
+    <div> <!--connect form field to app state -->
+      <p>{{ message3 }}</p>
+      <input v-model="message3">
+    </div>
+    <hr>
   </div>
   
   <!-- Connect vue lib just right in html script tag -->
@@ -41,6 +46,7 @@
       data: {
         message: 'Hello Vue!',
         message2: 'Hellw again!' + new Date().toLocaleString(),
+        message3: 'Default text change it in input field',
         now: new Date(),
         seen: true,
         todos: [
