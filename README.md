@@ -1,1 +1,1 @@
-# vue.js-sandbox
+# vue.js-playground
