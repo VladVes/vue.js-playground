@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Templates syntax</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+<body>
+  <div id='app'>
+    <div>{{ message1 }}</div> 
+    <div v-once>{{ message2 }}</div>
+    <div v-html="rawHtml"></div>
+    <div v-bind:title="dynamicAttribute">PUT CURSOR HERE to see dynamic title</div>
+    <button v-bind:disabled="isButtonDisabled">v-bind:disabled - Button example</button>
+    <div v-bind:id="'item-' + someId">
+      use js power in intepolation like number + 1, ok ? 'YES' : 'NO', message.split('').reverse().join('') - you can use calculated expressions
+    </div>
+    <div v-if="seen">Using v-if to show or hide this text</div>
+    <a v-on:click="doSomething"></a>
+    <a v-bind:[attributeName]="someValue">calculatable attribure name</a>
+    <a v-on:[eventName]="doSomething">calculatable event name</a>
+    <form v-on:submit.prevet="onSubmit"></form> <!-- using modifiactor .prevet will call event.preventDefault() -->
+
+    <!-- shortcats for v-bind and v-on useful when you are using vue to create SPA -->
+    <a :title="newTitle"></a>
+    <a :[attrName]="newVal"></a>
+
+    <a @click="doSomething"></a>
+    <a @[event]="doSomething"></a>
+
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
