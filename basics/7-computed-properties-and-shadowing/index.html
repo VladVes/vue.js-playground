@@ -14,6 +14,19 @@
     <p>Reversed with calculations in line: {{ message.split('').reverse().join('') }}</p>
     <p>Reversed with getter 'reversedString' {{ reversedString }}</p>
   </div>
+
+  
+  <!-- using watch -->
+  <div id="watch-example">
+    <p>
+      <input v-model="question">
+    </p>
+    <p>
+      {{ answer }}
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
   <script src="index.js"></script>
 </body>
 </html>

@@ -37,3 +37,37 @@ const vm = new Vue({
     },
   },
 });
+
+const watchExample = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'Until you ask a question, I can\'t answer!',
+  },
+  watch: {
+    question: function(newQuestion, OldQuestion) {
+      this.answer = 'Waiting for you to finish typing...',
+      this.debouncedGetAnswer();
+    },
+  },
+  created() {
+    this.debouncedGetAnswer = _.debounce(this.getAnswer, 5000);
+  },
+  methods: {
+    getAnswer() {
+      if (this.question.indexOf('?') === -1) {
+        this.answer = 'Questions usually end with a question mark. ;-)';
+        return;
+      }
+      this.answer = 'Thinking...';
+      var vm = this;
+      axios.get('https://yesno.wtf/api')
+        .then((response) => {
+          vm.answer = _.capitalize(response.data.answer);
+        })
+        .catch((error) => {
+          vm.answer = 'Error! I can not contact the API.' + error;
+        });
+    },
+  },
+});
