@@ -4,6 +4,19 @@ const vm = new Vue({
     isActive: true,
     hasError: false,
     error: null,
+
+    activeClass: 'active',
+    errorClass: 'danger',
+
+    activeColor: 'red',
+    fontSize: 30,
+
+    styelObject: {
+      color: 'green',
+      fontSize: '13px',
+    },
+    baseStyles: { /*some styles..*/ },
+    overridingStyles: { /*some styles..*/  },
   },
   computed: {
     classObject() {

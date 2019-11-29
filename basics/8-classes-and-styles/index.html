@@ -21,7 +21,38 @@
       class="block" 
       v-bind:class="classObject"
     >
-      Some text demonstration dynamic classes
+      Using class object with computed 
+    </div>
+
+    <div 
+      class="block" 
+      v-bind:class="[activeClass, errorClass]"
+    >
+      Using array
+    </div>
+    <div 
+      class="block" 
+      v-bind:class="[{ active: isActive }, errorClass]"
+    >
+      Using array2
+    </div>
+
+    // with inline styles
+    <div 
+      v-bind:style="{ color: activeColor, fontSize: fontSize + 'px'}"
+    >
+      inlyne styles
+    </div>
+    <div 
+      v-bind:style="{styelObject}"
+    >
+      inlyne styles2
+    </div>
+    <!-- using array we can provice a few objects with styles-->
+    <div 
+      v-bind:style="[baseStyles, overridingStyles]"
+    >
+      inlyne styles3
     </div>
   </div>
   <script src="index.js"></script>
