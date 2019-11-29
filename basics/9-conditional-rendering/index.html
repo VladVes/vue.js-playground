@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classes and styles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+<body>
+  <div id='app'>
+    <!-- v-if -->
+    <div v-if="awesome">Vue is good :)</div>
+    <!-- v-else/v-else-if shoulde be right after v-if or it's will not work-->
+    <div v-else-if="notSoGoo">so so</div>
+    <div v-else>vue is bad :(</div>
+
+    <!-- apply condition to a group of elements -->
+    <template v-if="showElements">
+      <h1>Header 1</h1>
+      <p>text</p>
+      <p>text</p>
+    </template>
+    
+    <!-- using key property  in this case Vue will reuse the input element -->
+    <template v-if="loginType === 'username'">
+      <label>Имя пользователя</label>
+      <input placeholder="Введите имя пользователя">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Введите адрес email">
+    </template>
+    <!-- using key property  in this case Vue will create new input element each time loginType will be changed-->
+    <template v-if="loginType === 'username'">
+      <label>Имя пользователя</label>
+      <input key="userName" placeholder="Введите имя пользователя">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input key="email" placeholder="Введите адрес email">
+    </template>
+
+    <!-- v-show will only chage display prop to none. Don't work with template and v-else -->
+    <h1 v-show="show">Change display </h1>
+    
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
