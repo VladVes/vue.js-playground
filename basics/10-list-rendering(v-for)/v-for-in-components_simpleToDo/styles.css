@@ -1,0 +1,16 @@
+.block {
+  width: 50%;
+  border: 1px solid green;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.danger {
+  color: red;
+}
+
+.primary {
+  color: blue;
+}
+
+

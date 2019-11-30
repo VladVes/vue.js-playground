@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classes and styles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+<body>
+  <div id='app'>
+    <!-- v-for-->
+    <ul>
+      <li v-for="item in items"> <!-- also we can write like v-for="item of items" instead of in  -->
+        {{ item.message }}
+      </li>
+    </ul>
+
+    <!-- using indexes -->
+    <ul>
+      <li v-for="(item, index) in items">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+      </li>
+    </ul>
+
+    <!-- using v-for with objects -->
+    <ul>
+      <li v-for="value in object">
+        {{ value }}
+      </li>
+    </ul>
+    
+    <ul>
+      <li v-for="(value, name) in object">
+        {{ name }}: {{ value }}
+      </li>
+    </ul>
+
+    <div v-for="(value, name, index) in object">
+      {{ index }}. {{ name }}: {{ value }}
+    </div>
+
+    <!-- it's better to use v-for with key -->
+    <ul>
+      <li v-for="value in object" v-bind:key="item.id">
+        {{ item.message }}
+      </li>
+    </ul>
+
+    <!--to render filtered or mapped array -->
+    <ul>
+      <li v-for="n in filteredNumbers">{{ n }}</li>
+    </ul>
+
+    <!-- v-for with range - n will be rendered for like 12345678910 -->
+    <div>
+      <span v-for="n in 10">{{ n }}</span>
+    </div>
+    
+    <!-- v-for with templates -->
+    <ul>
+      <template v-for="item in items">
+        <li>{{ item.msg }}</li>
+        <li class="divider" role="presentation"></li>
+      </template>
+    </ul>
+
+    <!-- v-for with v-if - v-for has bigger priority then v-if so v-if will be applied to every itetation -->
+    <!-- it is usefull then we need to render only incompleted tasks for example -->
+    <li v-for="todo in todos" v-if="!todo.isComplete">
+      {{ todo }}
+    </li>
+
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
