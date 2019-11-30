@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classes and styles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+<body>
+
+  <div id="example-1">
+    <button v-on:click="counter += 1">+1</button>
+    <p>Button pressed for {{ counter }} times</p>
+  </div>
+
+  <div id="example-2">
+  <!-- `greet` - is the method -->
+  <button v-on:click="greet">Greetings</button>
+
+  <div id="example-3">
+    <button v-on:click="say('hi')">Say hi!</button>
+    <button v-on:click="say('what')">Say what!</button>
+  </div>
+
+  <!-- event modificators -->
+  <!-- событие click не будет всплывать дальше -->
+  <a v-on:click.stop="doThis"></a>
+
+  <!-- событие submit больше не будет перезагружать страницу -->
+  <form v-on:submit.prevent="onSubmit"></form>
+
+  <!-- модификаторы можно объединять в цепочки -->
+  <a v-on:click.stop.prevent="doThat"></a>
+
+  <!-- и использовать без указания метода-обработчика -->
+  <form v-on:submit.prevent></form>
+
+  <!-- можно отслеживать события в режиме capture, т.е. событие, нацеленное -->
+  <!-- на внутренний элемент, обрабатывается здесь до обработки этим элементом -->
+  <div v-on:click.capture="doThis">...</div>
+
+  <!-- вызов обработчика только в случае наступления события непосредственно -->
+  <!-- на данном элементе (то есть не на дочернем компоненте) -->
+  <div v-on:click.self="doThat">...</div>
+
+</div>
+  <script src="index.js"></script>
+</body>
+</html>
