@@ -1,0 +1,23 @@
+ul {
+  list-style: none;
+  list-style-position: outside;
+}
+
+.main-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.danger {
+  color: red;
+}
+
+.primary {
+  color: blue;
+}
+
+

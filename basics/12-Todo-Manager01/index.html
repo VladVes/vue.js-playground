@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classes and styles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+<body>
+  <container id="app" class="main-container">
+    <div class="header">
+      <h1>{{ title }}</h1>
+    </div>
+    <label for="newTodoName">
+      New todo 
+      <input id="newTodoName" type="text" v-model="newTodo">
+    </label>
+    <button v-on:click.stop.prevent="addTodo">add</button>
+    <hr/>
+    <div class="todo-list" v-if="todoList.length">
+      <ul>
+        <li v-for="todo in todoList">
+          <div>
+            {{ todo.name }}
+            <button v-on:click.stop.prevent="removeTodo">remove</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div v-else>No todos in the list...</div>
+  </container>
+  <script src="index.js"></script>
+</body>
+</html>
